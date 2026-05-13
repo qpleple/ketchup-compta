@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Define base paths
 define('BASE_PATH', dirname(__DIR__));
-define('WWW_PATH', BASE_PATH . '/www');
+define('WWW_PATH', BASE_PATH . '/www/html');
 define('TESTS_PATH', __DIR__);
 
 /**
