@@ -101,9 +101,4 @@ require_once __DIR__ . '/../../header.php';
     </div>
 </form>
 
-<div class="mt-20">
-    <p><strong>Note :</strong> La modification des dates d'exercice ne régénère pas automatiquement les périodes.
-    Utilisez la page <a href="/modules/setup/periods.php">Périodes</a> pour régénérer les périodes mensuelles.</p>
-</div>
-
 <?php require_once __DIR__ . '/../../footer.php'; ?>

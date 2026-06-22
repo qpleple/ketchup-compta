@@ -2,7 +2,7 @@
 
 ## Summary
 
-Tests for the simplified accounting application (no periods, no drafts, no PDF, no bank, no lettering).
+Tests for the simplified accounting application (no drafts, no PDF, no bank, no lettering).
 
 | Suite | Test File | Description |
 |-------|-----------|-------------|

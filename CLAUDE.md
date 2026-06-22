@@ -137,7 +137,7 @@ db_query("INSERT INTO accounts (code, label) VALUES ('" . db_escape($code) . "',
 ### Entry Workflow
 - Entries are posted directly upon creation (no draft state)
 - Posted entries are immutable and have a piece number
-- Continuous accounting (no period restrictions)
+- Continuous accounting — entries can be posted at any date
 
 ### Piece Numbering
 Generated on validation: `{prefix}{YYYY}-{number:06d}`
