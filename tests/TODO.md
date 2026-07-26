@@ -35,7 +35,7 @@ Tests for the simplified accounting application (no drafts, no PDF, no bank, no 
 
 ## Run Tests
 
-Tests run inside the container (see README for the host fallback).
+Tests run inside the container (`docker-compose up -d` first).
 
 ```bash
 # All tests
