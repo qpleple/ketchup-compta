@@ -15,8 +15,7 @@ CREATE TABLE IF NOT EXISTS company (
     name TEXT NOT NULL,
     currency TEXT NOT NULL DEFAULT 'EUR',
     fiscal_year_start TEXT NOT NULL,
-    fiscal_year_end TEXT NOT NULL,
-    fiscal_year_closed INTEGER NOT NULL DEFAULT 0
+    fiscal_year_end TEXT NOT NULL
 );
 
 -- Chart of accounts
@@ -45,19 +44,17 @@ CREATE TABLE IF NOT EXISTS entries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     journal_id INTEGER NOT NULL,
     entry_date TEXT NOT NULL,
-    piece_number TEXT NULL,
+    piece_number TEXT NOT NULL,
     label TEXT NOT NULL,
-    status TEXT NOT NULL DEFAULT 'posted',
     total_debit REAL NOT NULL DEFAULT 0,
     total_credit REAL NOT NULL DEFAULT 0,
     created_by INTEGER NOT NULL,
     created_at TEXT NOT NULL,
-    posted_at TEXT NULL
+    posted_at TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_entries_journal ON entries (journal_id);
 CREATE INDEX IF NOT EXISTS idx_entries_date ON entries (entry_date);
 CREATE INDEX IF NOT EXISTS idx_entries_piece ON entries (piece_number);
-CREATE INDEX IF NOT EXISTS idx_entries_status ON entries (status);
 
 -- Entry lines
 CREATE TABLE IF NOT EXISTS entry_lines (

@@ -1,9 +1,7 @@
--- Hidden business logic triggers
--- Added for "data integrity" - 2008
--- These run silently on every INSERT/UPDATE/DELETE
+-- Database-level integrity rules and audit trail
 
 -- ==============================================
--- TRAP 1: Auto-round amounts to 2 decimals
+-- Reject amounts above the storage limit
 -- ==============================================
 CREATE TRIGGER IF NOT EXISTS trg_round_entry_line_insert
 BEFORE INSERT ON entry_lines
@@ -24,21 +22,18 @@ BEGIN
 END;
 
 -- ==============================================
--- TRAP 2: Prevent deletion of posted entries
+-- Entries are immutable once created
 -- ==============================================
 CREATE TRIGGER IF NOT EXISTS trg_protect_posted_entries
 BEFORE DELETE ON entries
-WHEN OLD.status = 'posted'
 BEGIN
     SELECT RAISE(ABORT, 'Impossible de supprimer une ecriture validee');
 END;
 
 -- ==============================================
--- TRAP 3: Auto-update hidden timestamp column
+-- Fall back to the server clock if the application
+-- did not provide a creation timestamp
 -- ==============================================
--- First, we need to add the column (will fail silently if exists)
--- ALTER TABLE entries ADD COLUMN _touched_at TEXT;
-
 CREATE TRIGGER IF NOT EXISTS trg_entry_touch_insert
 AFTER INSERT ON entries
 BEGIN
@@ -46,7 +41,7 @@ BEGIN
 END;
 
 -- ==============================================
--- TRAP 4: Silent audit on sensitive deletes
+-- Keep a trace of deleted accounts
 -- ==============================================
 CREATE TRIGGER IF NOT EXISTS trg_audit_account_delete
 BEFORE DELETE ON accounts

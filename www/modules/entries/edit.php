@@ -1,6 +1,6 @@
 <?php
 /**
- * Entry create/edit page - Legacy style (Simplified, no draft)
+ * Entry creation page
  */
 
 require_once __DIR__ . '/../../lib/db.php';
@@ -98,8 +98,8 @@ if (is_post() && !$entry) {
         $user_id = auth_user_id();
         $piece_number = generate_piece_number($journal_id);
 
-        $sql = "INSERT INTO entries (journal_id, entry_date, piece_number, label, status, total_debit, total_credit, created_by, created_at, posted_at)
-                VALUES ($journal_id, '$entry_date', '$piece_number', '$label', 'posted', $total_debit, $total_credit, $user_id, datetime('now'), datetime('now'))";
+        $sql = "INSERT INTO entries (journal_id, entry_date, piece_number, label, total_debit, total_credit, created_by, created_at, posted_at)
+                VALUES ($journal_id, '$entry_date', '$piece_number', '$label', $total_debit, $total_credit, $user_id, datetime('now'), datetime('now'))";
         db_query($sql);
         $entry_id = db_insert_id();
 

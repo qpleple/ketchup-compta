@@ -1,14 +1,11 @@
 <?php
 /**
- * Trial Balance report - Legacy style
+ * Trial Balance report
  */
 
 $page_title = 'Balance';
 require_once __DIR__ . '/../../header.php';
 require_login();
-
-// Build query conditions
-$where = "e.status = 'posted'";
 
 // Get trial balance data
 $sql = "SELECT a.code, a.label, a.type,
@@ -16,7 +13,7 @@ $sql = "SELECT a.code, a.label, a.type,
                SUM(el.credit) as total_credit
         FROM accounts a
         LEFT JOIN entry_lines el ON el.account_id = a.id
-        LEFT JOIN entries e ON el.entry_id = e.id AND $where
+        LEFT JOIN entries e ON el.entry_id = e.id
         GROUP BY a.id, a.code, a.label, a.type
         HAVING total_debit > 0 OR total_credit > 0
         ORDER BY a.code";
