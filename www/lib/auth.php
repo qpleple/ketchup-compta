@@ -1,10 +1,10 @@
 <?php
 /**
- * Authentication functions - Legacy style (2006)
+ * Authentication functions
  * MD5 hashing with salt, session-based auth
  */
 
-// Password salt (legacy style - would be in config in production)
+// Password salt
 define('PASSWORD_SALT', 'legacy');
 
 /**
@@ -17,7 +17,7 @@ function auth_start_session() {
 }
 
 /**
- * Hash password with MD5 and salt (legacy style - intentionally weak)
+ * Hash password with MD5 and salt
  */
 function auth_hash_password($password) {
     return md5(PASSWORD_SALT . $password);

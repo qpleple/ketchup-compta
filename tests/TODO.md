@@ -31,7 +31,7 @@ Tests for the simplified accounting application (no drafts, no PDF, no bank, no 
 - journals.php - CRUD
 
 ### admin/
-- users.php - CRUD, roles
+- users.php - CRUD
 
 ## Run Tests
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Chart of accounts management - Legacy style
+ * Chart of accounts management
  */
 
 require_once __DIR__ . '/../../lib/db.php';

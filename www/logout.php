@@ -1,6 +1,6 @@
 <?php
 /**
- * Logout page - Legacy style
+ * Logout page
  */
 
 require_once __DIR__ . '/lib/db.php';

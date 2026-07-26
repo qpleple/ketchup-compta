@@ -1,6 +1,6 @@
 <?php
 /**
- * Dashboard - Legacy style (Simplified)
+ * Dashboard
  */
 
 require_once __DIR__ . '/lib/db.php';

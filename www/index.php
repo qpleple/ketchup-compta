@@ -53,7 +53,7 @@ $tagline = $taglines[array_rand($taglines)];
                 </div>
                 <div style="flex: 1; min-width: 200px; padding: 12px; background: #f9f9f9; border: 1px solid #e5e5e5;">
                     <strong style="color: #003366;">États comptables</strong><br>
-                    <span style="color: #666; font-size: 11px;">Grand livre, balance, TVA</span>
+                    <span style="color: #666; font-size: 11px;">Grand livre, balance, journal</span>
                 </div>
             </div>
 

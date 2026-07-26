@@ -24,12 +24,7 @@ if [ ! -f "$DB_PATH" ]; then
 
     if [ -f "$SQL_DIR/03_triggers.sql" ]; then
         sqlite3 "$DB_PATH" < "$SQL_DIR/03_triggers.sql"
-        # No echo - triggers are "hidden"
-    fi
-
-    if [ -f "$SQL_DIR/04_lettering_samples.sql" ]; then
-        sqlite3 "$DB_PATH" < "$SQL_DIR/04_lettering_samples.sql"
-        echo "Lettering sample data loaded."
+        echo "Triggers loaded."
     fi
 
     chown www-data:www-data "$DB_PATH"

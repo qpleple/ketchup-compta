@@ -1,6 +1,6 @@
 <?php
 /**
- * Company settings page - Legacy style
+ * Company settings page
  */
 
 require_once __DIR__ . '/../../lib/db.php';

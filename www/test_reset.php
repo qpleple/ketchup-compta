@@ -36,12 +36,8 @@ try {
     $sql_files = [
         '01_schema.sql',
         '02_seed.sql',
-        '03_triggers.sql',
-        '04_lettering_samples.sql'
+        '03_triggers.sql'
     ];
-
-    // Check for test-specific fixtures first
-    $test_fixtures = $sql_dir . '/test_fixtures.sql';
 
     foreach ($sql_files as $file) {
         $path = $sql_dir . '/' . $file;
@@ -49,12 +45,6 @@ try {
             $sql = file_get_contents($path);
             $pdo->exec($sql);
         }
-    }
-
-    // Load test-specific fixtures if they exist
-    if (file_exists($test_fixtures)) {
-        $sql = file_get_contents($test_fixtures);
-        $pdo->exec($sql);
     }
 
     // Set permissions

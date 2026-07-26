@@ -1,6 +1,6 @@
 <?php
 /**
- * Header include - Legacy style
+ * Header include
  * Includes navigation menu and flash messages
  */
 
