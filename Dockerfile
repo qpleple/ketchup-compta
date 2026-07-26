@@ -1,12 +1,13 @@
 FROM php:8.1-apache
 
 # Install SQLite extension
-RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev git \
+# git + unzip are required by Composer to install the test dependencies
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev git unzip \
     && docker-php-ext-install pdo pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
-COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+# Install Composer (pinned: unpinned tags make image builds non-reproducible)
+COPY --from=composer/composer:2.8-bin /composer /usr/bin/composer
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
@@ -18,11 +19,11 @@ WORKDIR /var/www/html
 RUN echo "short_open_tag = On" >> /usr/local/etc/php/php.ini && \
     echo "display_errors = On" >> /usr/local/etc/php/php.ini && \
     echo "error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_WARNING" >> /usr/local/etc/php/php.ini && \
-    echo "upload_max_filesize = 10M" >> /usr/local/etc/php/php.ini && \
-    echo "post_max_size = 10M" >> /usr/local/etc/php/php.ini
+    echo "upload_max_filesize = 5M" >> /usr/local/etc/php/php.ini && \
+    echo "post_max_size = 6M" >> /usr/local/etc/php/php.ini
 
 # Create directories
-RUN mkdir -p /var/www/html/uploads /var/www/html/pdf /var/www/html/data && \
+RUN mkdir -p /var/www/html/data && \
     chown -R www-data:www-data /var/www/html
 
 # Copy entrypoint script

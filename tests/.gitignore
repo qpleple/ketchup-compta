@@ -1,6 +1,6 @@
 # Composer
+# composer.lock IS committed: it pins dependencies to the container's PHP 8.1
 /vendor/
-composer.lock
 
 # PHPUnit
 .phpunit.result.cache

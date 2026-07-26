@@ -1,6 +1,6 @@
 <?php
 /**
- * Entries list page - Legacy style (Simplified, no draft)
+ * Entries list page
  */
 
 require_once __DIR__ . '/../../lib/db.php';

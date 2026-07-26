@@ -1,5 +1,5 @@
 /**
- * CSS Styles - Legacy style (2006)
+ * CSS Styles
  * Simple CSS without modern features
  */
 
@@ -156,12 +156,6 @@ h3 {
     background: #f8d7da;
     border-color: #f5c6cb;
     color: #721c24;
-}
-
-.flash-warning {
-    background: #fff3cd;
-    border-color: #ffeeba;
-    color: #856404;
 }
 
 /* Forms */
@@ -412,22 +406,6 @@ h3 {
     margin-bottom: 10px;
 }
 
-/* Status badges */
-.status-posted {
-    color: #155724;
-    background: #d4edda;
-    padding: 2px 6px;
-    font-size: 10px;
-}
-
-.status-open {
-    color: #155724;
-}
-
-.status-locked {
-    color: #721c24;
-}
-
 /* Login page */
 #login-wrapper {
     display: flex;
@@ -504,46 +482,7 @@ h3 {
     margin-right: 15px;
 }
 
-/* Lettering */
-.lettering-line {
-    cursor: pointer;
-}
-
-.lettering-line.selected {
-    background: #d4edda !important;
-}
-
-.lettering-summary {
-    margin-top: 15px;
-    padding: 10px;
-    background: #f5f5f5;
-    border: 1px solid #ccc;
-}
-
-/* Bank reconciliation */
-.bank-line {
-    cursor: pointer;
-}
-
-.bank-line.matched {
-    background: #d4edda !important;
-}
-
-.bank-line.unmatched {
-    background: #fff3cd !important;
-}
-
 /* Reports */
-.report-header {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.report-header h2 {
-    border: none;
-    margin-bottom: 5px;
-}
-
 .report-totals {
     font-weight: bold;
     background: #e5e5e5 !important;
@@ -552,10 +491,6 @@ h3 {
 /* Utilities */
 .text-right {
     text-align: right;
-}
-
-.text-center {
-    text-align: center;
 }
 
 .mb-10 {

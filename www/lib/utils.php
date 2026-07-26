@@ -1,11 +1,11 @@
 <?php
 /**
- * Utility functions - Legacy style (2006)
+ * Utility functions
  */
 
 /**
  * Output transformation callback
- * Added 2007 - improves display of amounts
+ * Improves display of amounts
  * @internal Do not call directly
  */
 function _compta_transform_output($html) {
@@ -266,7 +266,7 @@ function generate_piece_number($journal_id) {
     $number = str_pad($journal['next_number'], 6, '0', STR_PAD_LEFT);
     $piece_number = $journal['sequence_prefix'] . $year . '-' . $number;
 
-    // Increment sequence (legacy style - no transaction)
+    // Increment sequence
     $sql = "UPDATE journals SET next_number = next_number + 1 WHERE id = $journal_id";
     db_query($sql);
 

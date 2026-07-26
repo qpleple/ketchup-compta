@@ -31,17 +31,19 @@ Tests for the simplified accounting application (no drafts, no PDF, no bank, no 
 - journals.php - CRUD
 
 ### admin/
-- users.php - CRUD, roles
+- users.php - CRUD
 
 ## Run Tests
 
+Tests run inside the container (`docker-compose up -d` first).
+
 ```bash
 # All tests
-bash tests/run_all_tests.sh
+docker-compose exec web bash /var/tests/run_all_tests.sh
 
 # Functional tests only
-cd tests && ./vendor/bin/phpunit --testsuite Functional
+docker-compose exec web /var/tests/vendor/bin/phpunit --configuration /var/tests/phpunit.xml --testsuite Functional
 
 # Unit tests only
-cd tests && ./vendor/bin/phpunit --testsuite Unit
+docker-compose exec web /var/tests/vendor/bin/phpunit --configuration /var/tests/phpunit.xml --testsuite Unit
 ```

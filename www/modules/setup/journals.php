@@ -1,6 +1,6 @@
 <?php
 /**
- * Journals management - Legacy style
+ * Journals management
  */
 
 require_once __DIR__ . '/../../lib/db.php';

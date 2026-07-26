@@ -1,6 +1,6 @@
 <?php
 /**
- * Journal report - Legacy style
+ * Journal report
  */
 
 $page_title = 'Journal';
@@ -14,7 +14,7 @@ $journal_id = get('journal_id', '');
 $journals = get_journals();
 
 // Build query conditions
-$where = "e.status = 'posted'";
+$where = "1=1";
 if ($journal_id) {
     $journal_id_int = intval($journal_id);
     $where .= " AND e.journal_id = $journal_id_int";

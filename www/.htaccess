@@ -1,5 +1,5 @@
 # Apache configuration for Ketchup Compta
-# Legacy setup - do not modify without testing
+# Do not modify without testing
 
 # PHP settings
 php_value auto_prepend_file "/var/www/html/lib/bootstrap.php"
