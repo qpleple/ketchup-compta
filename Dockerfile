@@ -1,12 +1,13 @@
 FROM php:8.1-apache
 
 # Install SQLite extension
-RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev git \
+# git + unzip are required by Composer to install the test dependencies
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev git unzip \
     && docker-php-ext-install pdo pdo_sqlite \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Composer
-COPY --from=composer/composer:latest-bin /composer /usr/bin/composer
+# Install Composer (pinned: unpinned tags make image builds non-reproducible)
+COPY --from=composer/composer:2.8-bin /composer /usr/bin/composer
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite

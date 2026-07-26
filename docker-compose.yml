@@ -9,3 +9,6 @@ services:
       - ./tests:/var/tests
     environment:
       - SQLITE_DB=/var/www/html/data/compta.db
+      # Test paths inside the container (./tests is mounted at /var/tests)
+      - WWW_PATH=/var/www/html
+      - APP_URL=http://localhost:80

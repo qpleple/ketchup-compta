@@ -18,7 +18,7 @@ $PHPUNIT --configuration "$SCRIPT_DIR/phpunit.xml" --testsuite Unit
 echo ""
 
 echo "=== Running Functional Tests ==="
-APP_URL="http://localhost:80" $PHPUNIT --configuration "$SCRIPT_DIR/phpunit.xml" --testsuite Functional
+$PHPUNIT --configuration "$SCRIPT_DIR/phpunit.xml" --testsuite Functional
 echo ""
 
 echo "=== All Tests Complete ==="

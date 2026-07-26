@@ -9,8 +9,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Define base paths
+// WWW_PATH is overridable because the tests directory is mounted outside the
+// repo layout in the container (see docker-compose.yml)
 define('BASE_PATH', dirname(__DIR__));
-define('WWW_PATH', BASE_PATH . '/www/html');
+define('WWW_PATH', getenv('WWW_PATH') ? getenv('WWW_PATH') : BASE_PATH . '/www');
 define('TESTS_PATH', __DIR__);
 
 /**
