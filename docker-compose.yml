@@ -2,7 +2,9 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"
+      # Override if 8080 is taken: APP_PORT=8099 docker-compose up -d
+      # APP_PORT=0 lets Docker pick any free port (handy when you only run tests)
+      - "${APP_PORT:-8080}:80"
     volumes:
       - ./www:/var/www/html
       - ./sql:/var/www/sql
